@@ -1,10 +1,10 @@
 #!/bin/sh
 
-master="master"
+source optparse.sh
+# Define options
+optparse_define short=a long=master desc="The name of the branch to which you will be pushing" variable=master default="master"
+optparse_define short=m long=message desc="The default commit message (WARNING: this is not recommended, it's best to have unique commit messages)" variable=my_message
+# Source the output file ----------------------------------------------------------
+source $( optparse_build )
 
-for var in $@; do
-  case
-    'test')
-    echo "lol"
-  esac
-done
+echo $my_message

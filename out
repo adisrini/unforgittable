@@ -9,7 +9,11 @@ if [ -d .git ]; then
     shift
   done
   if [ ${#message} == 0 ]; then
-    echo "ERROR: You must specify a commit message. If you would like to set a default, please do so by calling:\n\tprefs [-m | --message] your message"
+    if [[ -z $default_message ]]; then
+      echo "ERROR: You must specify a commit message. If you would like to set a default, please do so by calling:\n\tprefs [-m | --message] MESSAGE"
+    else
+      message=$default_message
+    fi;
   else
     echo "Staging all files...\n"
     git add .
@@ -18,7 +22,7 @@ if [ -d .git ]; then
     echo "Pushing to master...\n"
     git push origin $master
     version=$(sw_vers -productVersion)
-    if [ version > 10.6 ]; then
+    if [ version > 10.7 ]; then
       echo "\n😄  🙌  🎉  Successfuly pushed!  🎉  🙌  😄\n"
     else
       echo "\nSuccessfuly pushed!\n"
