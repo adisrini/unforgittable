@@ -14,7 +14,7 @@ if [ -d .git ]; then
     echo "Staging all files...\n"
     git add .
     echo "Committing with message: \"$message\"...\n"
-    git commit -m "\"$message\""
+    git commit -m "$message"
     echo "Pushing to master...\n"
     git push origin $master
     version=$(sw_vers -productVersion)
