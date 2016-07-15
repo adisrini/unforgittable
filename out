@@ -19,7 +19,7 @@ if [ -d .git ]; then
     git push origin $master
     version=$(sw_vers -productVersion)
     if [ version > 10.7 ]; then
-      echo "\n😄🙌🎉Successfuly pushed!🎉🙌😄\n"
+      echo "\n😄  🙌  🎉  Successfuly pushed!  🎉  🙌  😄\n"
     else
       echo "\nSuccessfuly pushed!\n"
     fi;
