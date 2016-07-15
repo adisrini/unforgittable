@@ -11,12 +11,18 @@ if [ -d .git ]; then
   if [ ${#message} == 0 ]; then
     echo "ERROR: You must specify a commit message. If you would like to set a default, please do so by calling:\n\tprefs [-m | --message] your message"
   else
-    echo "Staging all files..."
+    echo "Staging all files...\n"
     git add .
-    echo "Committing with message: \"$message\" (that's a clever one)..."
+    echo "Committing with message: \"$message\"...\n"
     git commit -m "\"$message\""
-    echo "Pushing to master..."
+    echo "Pushing to master...\n"
     git push origin $master
+    version=$(sw_vers -productVersion)
+    if [ version > 10.7 ]; then
+      echo "\n😄🙌🎉Successfuly pushed!🎉🙌😄\n"
+    else
+      echo "\nSuccessfuly pushed!\n"
+    fi;
   fi;
 else
   echo "This is not a git repository."
