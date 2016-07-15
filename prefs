@@ -1,3 +1,10 @@
 #!/bin/sh
 
 master="master"
+
+for var in $@; do
+  case
+    'test')
+    echo "lol"
+  esac
+done
