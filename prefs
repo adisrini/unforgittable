@@ -4,7 +4,15 @@ source optparse.sh
 # Define options
 optparse_define short=a long=master desc="The name of the branch to which you will be pushing" variable=master default="master"
 optparse_define short=m long=message desc="The default commit message (WARNING: this is not recommended, it's best to have unique commit messages)" variable=my_message
+optparse_define short=h long=help desc="Read about the usage" variable=help value=true
 # Source the output file ----------------------------------------------------------
 source $( optparse_build )
 
-echo $my_message
+if [[ $help ]]; then
+  echo "Usage: [ -a | --master ] MASTER_BRANCH [ -m | --message ] DEFAULT_MESSAGE";
+  echo "";
+  echo "MASTER_BRANCH = The name of the branch to which you will be pushing";
+  echo "DEFAULT_MESSAGE = The default commit message (WARNING: this is not recommended, it's best to have unique commit messages)";
+  echo "";
+  exit 1;
+fi;

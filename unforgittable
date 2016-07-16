@@ -1,0 +1,29 @@
+#!/bin/sh
+
+cat << "EOF"
+
+                     __                _ _   _        _     _
+                    / _|              (_) | | |      | |   | |
+        _   _ _ __ | |_ ___  _ __ __ _ _| |_| |_ __ _| |__ | | ___
+       | | | | '_ \|  _/ _ \| '__/ _` | | __| __/ _` | '_ \| |/ _ \
+       | |_| | | | | || (_) | | | (_| | | |_| || (_| | |_) | |  __/
+        \__,_|_| |_|_| \___/|_|  \__, |_|\__|\__\__,_|_.__/|_|\___|
+                                  __/ |
+                                 |___/         By Aditya Srinivasan
+
+
+
+This scripting package is intended to simplify many git processes, allowing you to quickly push code without worrying about navigating the git CLI\n
+
+Usage: <command> [<args>]
+
+Here are a list of available commands:
+
+push changes to master
+    out        Stages all changes and pushes a commit to the master branch
+    outsm      Stages only the files stated, and pushes a commit to the master branch
+
+change settings and defaults
+    prefs      Define defaults such as master branch and commit messages
+
+EOF
